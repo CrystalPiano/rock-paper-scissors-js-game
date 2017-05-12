@@ -1,1 +1,1 @@
-# Rock-Paper-Scissors-JS-Game
+# rock-paper-scissors-js-game
