@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors</title>
+</head>
+<body>
+           
+<div id="game">
+      <h1>Pick rock(r), paper(p), or scissors(s) to play!</h1>
+      <h2>You just typed <span id="userGuess"><strong></strong></span></h2>
+    </div>
+
+	<script>
+
+	 // Our array of possible computer choices.
+      var computerChoices = ["r", "p", "s"];
+
+
+    // Variables for tracking our wins, losses and ties. They begin at 0.
+      var wins = 0;
+      var losses = 0;
+      var ties = 0;
+
+
+ // When the user presses a key, it will run the following function...
+      document.onkeyup = function(event) {
+
+        // Determine which key was pressed
+        var userGuess = event.key;
+
+        // Sets the computerGuess variable equal to a random choice from the computerChoice array.
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+ 		// If the user presses "r" or "p" or "s", run the game logic.
+        if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+
+         
+          // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate counter.
+				if ((userGuess === "r") && (computerGuess === "s")) {
+					winscore++;
+				}
+
+				else if ((userGuess === "p") && (computerGuess === "r")) {
+					winscore++;
+				}
+
+				else if ((userGuess	=== "s") && (computerGuess === "p")) {
+					winscore++;
+				}
+
+				else if ((userGuess === "r") && (computerGuess === "p")) {
+					lossscore++;
+				}
+
+				else if ((userGuess === "p") && (computerGuess ==== "s")) {
+					lossscore++;
+				}
+
+				else if ((userGuess === "s") && (computerGuess === "r")) {
+					lossscore++;
+				}
+
+				else if ((userGuess === computerGuess)) {
+					tiescore++;
+				}
+
+ // Here we create the HTML that will be injected into our div and displayed on the page.
+          var html = "<p>Press r, p or s to start playing!</p>" +
+          "<p>wins: " + winscore + "</p>" +
+          "<p>losses: " + lossscore + "</p>" +
+          "<p>ties: " + tiescore + "</p>";
+
+          // Injecting the HTML we just created into our div and updating the game information on our page.
+          document.querySelector("#game").innerHTML = html;
+
+        }
+      };
+
+	</script>
+
+
+</body>
+</html>
